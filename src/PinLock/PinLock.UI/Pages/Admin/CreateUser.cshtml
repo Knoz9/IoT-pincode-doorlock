@@ -1,0 +1,93 @@
+﻿@page
+@model PinLock.UI.Pages.Admin.CreateUser
+
+@{
+    ViewData["Title"] = "Create User";
+    ViewData["Role"] = "Admin";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        
+.form-reg {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+
+.form-reg .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-reg input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-reg input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+    </style>
+    <title></title>
+</head>
+<body class="text-center">
+<div>
+
+    <div class="text-center">
+        <main class="form-reg">
+            <h1>Create User</h1>
+            <form action="" method="post">
+
+                <h1 class="h3 mb-3 fw-normal"></h1>
+                <div class="form-floating">
+                    <input type="text" name="username" class="form-control" id="floatingInput" placeholder="nm222ra">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+            </form>
+        </main>
+    </div>
+    <br/>
+<div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model.users)
+            {
+                <tr>
+                    @if (user.UserName != "admin"){
+                        <td>@user.UserName</td>
+                        <td>
+                            <form asp-page-handler="Delete" method="post">
+                                <input type="text" class="form-control" id="id-text" name="id" value="@user.Id" style="display: none;">
+                                <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

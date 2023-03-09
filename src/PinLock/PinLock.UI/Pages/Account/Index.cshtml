@@ -1,0 +1,44 @@
+﻿@page
+@model PinLock.UI.Pages.Account.Index
+
+@{
+    ViewData["Title"] = "Account";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <div class="text-center">
+        <h1 class="display-4">Account</h1>
+        <h2 class="display-4">Welcome, @Model.User.Identity?.Name</h2>
+    </div>
+    <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Current Pin</th>
+                    <th scope="col">Expire</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var device in Model.devices)
+                {
+                    <tr>
+                        <td>@device.Description</td>
+                        <td>@device.CurrentPin</td>
+                        <td>@device.Expire</td>
+                        
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+</div>
+</body>
+</html>

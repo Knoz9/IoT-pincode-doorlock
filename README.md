@@ -6,8 +6,6 @@ Program: Computer Science <br>
 Course: Introducing project (1DT308) <br>
 Date of submission: <br>
 
-Presentation Video: https://www.youtube.com/watch?v=10LhsbcqLpc
-
 ## Abstract
 
 This project aimed to create a code lock that can be controlled online through mqtt / wifi. The code lock has a 4 segment display that shows - - - - when entering numbers, it shows ```*ERROR*``` when you enter the wrong code, it shows ```*WELL*``` (for welcome) when entering the correct code.
